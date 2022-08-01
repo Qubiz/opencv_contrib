@@ -55,6 +55,8 @@
 #include <opencv2/photo.hpp>
 #include <opencv2/stitching.hpp>
 #include <opencv2/video.hpp>
+#include <opencv2/superres/optical_flow.hpp>
+#include <opencv2/xphoto/tonemap.hpp>
 
 namespace cv {
 namespace bridge {
@@ -85,17 +87,19 @@ typedef cv::Ptr<AlignMTB> Ptr_AlignMTB;
 typedef cv::Ptr<CalibrateDebevec> Ptr_CalibrateDebevec;
 typedef cv::Ptr<CalibrateRobertson> Ptr_CalibrateRobertson;
 typedef cv::Ptr<DenseOpticalFlow> Ptr_DenseOpticalFlow;
-typedef cv::Ptr<DualTVL1OpticalFlow> Ptr_DualTVL1OpticalFlow;
+typedef cv::Ptr<cv::superres::DualTVL1OpticalFlow> Ptr_DualTVL1OpticalFlow;
 typedef cv::Ptr<MergeDebevec> Ptr_MergeDebevec;
 typedef cv::Ptr<MergeMertens> Ptr_MergeMertens;
 typedef cv::Ptr<MergeRobertson> Ptr_MergeRobertson;
 typedef cv::Ptr<Stitcher> Ptr_Stitcher;
 typedef cv::Ptr<Tonemap> Ptr_Tonemap;
 typedef cv::Ptr<TonemapDrago> Ptr_TonemapDrago;
-typedef cv::Ptr<TonemapDurand> Ptr_TonemapDurand;
+typedef cv::Ptr<cv::xphoto::TonemapDurand> Ptr_TonemapDurand;
 typedef cv::Ptr<TonemapMantiuk> Ptr_TonemapMantiuk;
 typedef cv::Ptr<TonemapReinhard> Ptr_TonemapReinhard;
 typedef cv::Ptr<float> Ptr_float;
+typedef cv::Ptr<cv::GeneralizedHoughBallard> Ptr_GeneralizedHoughBallard;
+typedef cv::Ptr<cv::GeneralizedHoughGuil> Ptr_GeneralizedHoughGuil;
 
 // ----------------------------------------------------------------------------
 //                          PREDECLARATIONS
@@ -527,6 +531,16 @@ public:
   Bridge& operator=(const Ptr_float& ) { return *this; }
   Ptr_float toPtrFloat() { return Ptr_float(); }
   operator Ptr_float() { return toPtrFloat(); }
+
+  // ---------------------------   Ptr_GeneralizedHoughBallard   ----------------------
+  Bridge& operator=(const Ptr_GeneralizedHoughBallard & ) { return *this; }
+  Ptr_GeneralizedHoughBallard toPtrGeneralizedHoughBallard() { return Ptr_GeneralizedHoughBallard(); }
+  operator Ptr_GeneralizedHoughBallard() { return toPtrGeneralizedHoughBallard(); }
+
+  // ---------------------------   Ptr_GeneralizedHoughGuil   ----------------------
+  Bridge& operator=(const Ptr_GeneralizedHoughGuil & ) { return *this; }
+  Ptr_GeneralizedHoughGuil toPtrGeneralizedHoughGuil() { return Ptr_GeneralizedHoughGuil(); }
+  operator Ptr_GeneralizedHoughGuil() { return toPtrGeneralizedHoughGuil(); }
 }; // class Bridge
 
 
