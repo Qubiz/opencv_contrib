@@ -134,7 +134,7 @@ function(locate_matlab_components MATLAB_ROOT_DIR)
   endif()
 
   # map the mexext to an architecture extension
-  set(ARCHITECTURES_ "maci64" "maci" "glnxa64" "glnx64" "sol64" "sola64" "win32" "win64" )
+  set(ARCHITECTURES_ "maci64" "maci" "glnxa64" "glnx64" "sol64" "sola64" "win64" "win32")
   foreach(ARCHITECTURE_ ${ARCHITECTURES_})
     if(EXISTS ${MATLAB_ROOT_DIR}/bin/${ARCHITECTURE_})
       set(MATLAB_ARCH_ ${ARCHITECTURE_})
